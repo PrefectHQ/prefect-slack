@@ -16,6 +16,7 @@ async def send_chat_message(
     text: Optional[str] = None,
     attachments: Optional[Sequence[Union[Dict, Attachment]]] = None,
     slack_blocks: Optional[Sequence[Union[Dict, SlackBlock]]] = None,
+
 ) -> AsyncSlackResponse:
     client = slack_credentials.get_slack_web_client()
 
