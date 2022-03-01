@@ -29,5 +29,6 @@ plugins:
         - prefect_slack/
 nav:
     - Home: index.md
+    - Credentials: credentials.md
     - Messages: messages.md
 
