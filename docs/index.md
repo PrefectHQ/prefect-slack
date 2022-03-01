@@ -40,6 +40,7 @@ from prefect.context import get_run_context
 from prefect_slack import SlackCredentials
 from prefect_slack.messages import send_chat_message
 
+
 @flow
 def example_flow():
     context = get_run_context()
