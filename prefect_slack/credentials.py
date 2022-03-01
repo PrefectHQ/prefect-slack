@@ -11,6 +11,7 @@ class SlackCredentials:
     Args:
         token: Bot user OAuth token for the Slack app used to perform actions.
     """
+
     token: str
 
     def get_slack_web_client(self) -> AsyncWebClient:

@@ -1,6 +1,7 @@
-from unittest.mock import MagicMock
-import pytest
 import sys
+from unittest.mock import MagicMock
+
+import pytest
 
 if sys.version_info < (3, 8):
     # https://docs.python.org/3/library/unittest.mock.html#unittest.mock.AsyncMock

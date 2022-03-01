@@ -14,28 +14,29 @@ async def send_chat_message(
     text: Optional[str] = None,
     attachments: Optional[Sequence[Union[Dict, Attachment]]] = None,
     slack_blocks: Optional[Sequence[Union[Dict, SlackBlock]]] = None,
-
 ) -> Dict:
     """
     Sends a message to a Slack channel
 
     Args:
-        channel: The name of the channel in which to post the chat messsage (e.g. #general)
-        slack_credentials: Instance of SlackCredentials initialized with a Slack bot token
+        channel: The name of the channel in which to post the chat messsage
+            (e.g. #general)
+        slack_credentials: Instance of SlackCredentials initialized with a Slack
+            bot token
         text: Contents of the message. It's a best practice to always provide a `text`
             argument when posting a message. The `text` argument is used in places where
-            content cannot be rendered such as: system push notifications, assistive technology
-            such as screen readers, etc.
-        attachments: List of objects defining secondary context in the posted Slack message.
-            The [Slack API docs](https://api.slack.com/messaging/composing/layouts#building-attachments)
+            content cannot be rendered such as: system push notifications, assistive
+            technology such as screen readers, etc.
+        attachments: List of objects defining secondary context in the posted Slack
+            message. The [Slack API docs](https://api.slack.com/messaging/composing/layouts#building-attachments)
             provide guidance on building attachments.
-        slack_blocks: List of objects defining the layout and formatting of the posted message.
-            The [Slack API docs](https://api.slack.com/block-kit/building) provide guidance on building
-            messages with blocks.
+        slack_blocks: List of objects defining the layout and formatting of the posted
+            message. The [Slack API docs](https://api.slack.com/block-kit/building)
+            provide guidance on building messages with blocks.
 
     Returns:
-        Dict: Response from the Slack API. Example response structures can be found the the
-            [Slack API docs](https://api.slack.com/methods/chat.postMessage#examples)
+        Dict: Response from the Slack API. Example response structures can be found in
+            the [Slack API docs](https://api.slack.com/methods/chat.postMessage#examples)
 
     Examples:
         Post a message at the end of a flow run
@@ -58,7 +59,7 @@ async def send_chat_message(
             )
 
         ```
-    """
+    """  # noqa
     logger = get_run_logger()
     logger.info("Posting chat message to %s", channel)
 
