@@ -29,6 +29,5 @@ plugins:
         - prefect_slack/
 nav:
     - Home: index.md
-    - Tasks: tasks.md
-    - Flows: flows.md
+    - Messages: messages.md
 
