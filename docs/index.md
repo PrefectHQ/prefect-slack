@@ -22,6 +22,16 @@ Install `prefect` and `prefect-slack`
 pip install "prefect>=2.0a9" prefect-slack
 ```
 
+### Slack setup
+
+In order to use tasks in the collection, you'll first need to create an Slack app and install it in your Slack workspace. You can create a Slack app by navigating to the [apps page](https://api.slack.com/apps) for your Slack account and selecting 'Create New App'.
+
+For tasks that require a Bot user OAuth token, you can get a token for your app by navigating to your apps __OAuth & Permissions__ page.
+
+For tasks that require and Webhook URL, you get generate new Webhook URLs by navigating to you apps __Incoming Webhooks__ page.
+
+Slack's [Basic app setup](https://api.slack.com/authentication/basics) guide provides additional details on setting up a Slack app.
+
 ### Write and run a flow
 
 ```python
