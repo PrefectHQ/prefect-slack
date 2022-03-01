@@ -57,6 +57,12 @@ async def example_flow():
 asyncio.run(example_flow())
 ```
 
+## Resources
+
+If you encounter and bugs while using `prefect-slack`, feel free to open an issue in the [prefect-slack](https://github.com/PrefectHQ/prefect-slack) repository.
+
+If you have any questions or issues while using `prefect-slack`, you can find help in either the [Prefect Discourse forum](https://discourse.prefect.io/) or the [Prefect Slack community](https://prefect.io/slack)
+
 ## Development
 
 If you'd like to install a version of `prefect-slack` for development, first clone the repository and then perform an editable install with `pip`:

@@ -57,7 +57,6 @@ async def send_chat_message(
                 channel="#prefect",
                 text=f"Flow run {context.flow_run.name} completed :tada:"
             )
-
         ```
     """  # noqa
     logger = get_run_logger()
