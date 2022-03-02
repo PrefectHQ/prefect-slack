@@ -1,10 +1,12 @@
-from typing import Dict, Optional, Sequence, Union
+from typing import TYPE_CHECKING, Dict, Optional, Sequence, Union
 
 from prefect import get_run_logger, task
-from slack_sdk.models.attachments import Attachment
-from slack_sdk.models.blocks import Block as SlackBlock
 
 from prefect_slack.credentials import SlackCredentials
+
+if TYPE_CHECKING:
+    import slack_sdk.models.attachments
+    import slack_sdk.models.blocks
 
 
 @task
@@ -12,8 +14,12 @@ async def send_chat_message(
     channel: str,
     slack_credentials: SlackCredentials,
     text: Optional[str] = None,
-    attachments: Optional[Sequence[Union[Dict, Attachment]]] = None,
-    slack_blocks: Optional[Sequence[Union[Dict, SlackBlock]]] = None,
+    attachments: Optional[
+        Sequence[Union[Dict, "slack_sdk.models.attachments.Attachment"]]
+    ] = None,
+    slack_blocks: Optional[
+        Sequence[Union[Dict, "slack_sdk.models.blocks.Block"]]
+    ] = None,
 ) -> Dict:
     """
     Sends a message to a Slack channel
