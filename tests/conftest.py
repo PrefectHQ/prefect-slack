@@ -11,3 +11,10 @@ def slack_credentials():
         chat_postMessage=MagicMock(data=dict())
     )
     return slack_credentials_mock
+
+
+@pytest.fixture
+def slack_webhook():
+    slack_webhook_mock = MagicMock()
+    slack_webhook_mock.get_slack_webhook_client.return_value = AsyncMock()
+    return slack_webhook_mock
