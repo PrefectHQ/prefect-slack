@@ -1,6 +1,8 @@
 # prefect-slack
 
-Welcome to your new Prefect collection! Feel free to modify this README to fit the needs of your collection!
+## Welcome!
+
+`prefect-slack` is a collections of prebuilt Prefect tasks that can be used to quickly construct Prefect flows.
 
 ## Getting Started
 
@@ -10,55 +12,65 @@ Requires an installation of Python 3.7+
 
 We recommend using a Python virtual environment manager such as pipenv, conda or virtualenv.
 
-### Project setup
+These tasks are designed to work with Prefect 2.0. For more information about how to use Prefect, please refer to the [Prefect documentation](https://orion-docs.prefect.io/).
 
-To setup your project run the following:
-   ```bash
-   # Create an editable install of your project
-   pip install -e ".[dev]"
+### Installation
 
-   # Configure pre-commit hooks
-   pre-commit install
-   ```
+Install `prefect` and `prefect-slack`
 
-To verify the set up was successful you can run the following:
-- Run the tests for the example tasks and flow in the bootstrapped collection
-   ```bash
-   pytest tests
-   ```
-- Serve the bootstrapped example docs with `mkdocs`
-   ```bash
-   mkdocs serve
-   ```
+```bash
+pip install "prefect>=2.0a9" prefect-slack
+```
 
-You are now ready to start creating your Prefect collection!
+### Slack setup
 
-## Developing tasks and flows
+In order to use tasks in the collection, you'll first need to create an Slack app and install it in your Slack workspace. You can create a Slack app by navigating to the [apps page](https://api.slack.com/apps) for your Slack account and selecting 'Create New App'.
 
-For information about the use and development of tasks and flow, check out the [flows](https://orion-docs.prefect.io/concepts/flows/) and [tasks](https://orion-docs.prefect.io/concepts/tasks/) concepts docs in the Prefect docs.
+For tasks that require a Bot user OAuth token, you can get a token for your app by navigating to your apps __OAuth & Permissions__ page.
 
-## Writing documentation
+For tasks that require and Webhook URL, you get generate new Webhook URLs by navigating to you apps __Incoming Webhooks__ page.
 
-This collection has been setup to with [mkdocs](https://www.mkdocs.org/) for automatically generated documentation. The signatures and docstrings of your tasks and flow will be used to generate documentation for the users of this collection. You can make changes to the structure of the generated documentation by editing the `mkdocs.yml` file in this project.
+Slack's [Basic app setup](https://api.slack.com/authentication/basics) guide provides additional details on setting up a Slack app.
 
-## Development lifecycle
+### Write and run a flow
 
-### CI Pipeline
+```python
+from prefect import flow
+from prefect.context import get_run_context
+from prefect_slack import SlackCredentials
+from prefect_slack.messages import send_chat_message
 
-This collection comes with [GitHub Actions](https://docs.github.com/en/actions) for testing and linting. To add additional actions, you can add jobs in the `.github/workflows` folder. On PR, the pipeline will run linting via [`black`](https://black.readthedocs.io/en/stable/) and [`flake8`](https://flake8.pycqa.org/en/latest/) and unit tests via `pytest`.
 
-### Package and Publish
+@flow
+def example_send_message_flow():
+   context = get_run_context()
 
-GitHub actions will also handle packaging and publishing of your collection to [PyPI](https://pypi.org/) so other Prefect users can your collection in their flows. 
+   # Run other tasks and subflows here
 
-In order to publish to PyPI, you'll need a PyPI account and generate an API token to authenticate with PyPI when publishing new versions of your collection. The [PyPI documentation](https://pypi.org/help/#apitoken) outlines the steps needed to get an API token.
+   token = "xoxb-your-bot-token-here"
+   send_chat_message(
+         slack_credentials=SlackCredentials(token),
+         channel="#prefect",
+         text=f"Flow run {context.flow_run.name} completed :tada:"
+   )
 
-Once you've obtained a PyPI API token, [create a GitHub secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `PYPI_API_TOKEN`.
+example_send_message_flow()
+```
 
-There is also a GitHub Action that performs a test publish to [test PyPI](https://test.pypi.org/) to allow for a test deployment without affecting PyPI. You will need a separate token for test PyPI which can be saved in a GitHub secret names `TEST_PYPI_API_TOKEN`
+## Resources
 
-## Further guidance
+If you encounter and bugs while using `prefect-slack`, feel free to open an issue in the [prefect-slack](https://github.com/PrefectHQ/prefect-slack) repository.
 
-If you run into any issues during the bootstrapping process, feel free to open an issue in the [prefect-collection-template](https://github.com/PrefectHQ/prefect-collection-template) repository.
+If you have any questions or issues while using `prefect-slack`, you can find help in either the [Prefect Discourse forum](https://discourse.prefect.io/) or the [Prefect Slack community](https://prefect.io/slack)
 
-If you have any questions or issues while developing your collection, you can find help in either the [Prefect Discourse forum](https://discourse.prefect.io/) or the [Prefect Slack community](https://prefect.io/slack)
+## Development
+
+If you'd like to install a version of `prefect-slack` for development, first clone the repository and then perform an editable install with `pip`:
+
+```bash
+git clone https://github.com/PrefectHQ/prefect-slack.git
+
+cd prefect-slack/
+
+pip install -e ".[dev]"
+```
