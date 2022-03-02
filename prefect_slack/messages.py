@@ -54,13 +54,13 @@ async def send_chat_message(
 
 
         @flow
-        async def my_flow():
+        def my_flow():
             context = get_run_context()
 
             # Run other tasks and subflows here
 
             token = "xoxb-your-bot-token-here"
-            await send_chat_message(
+            send_chat_message(
                 slack_credentials=SlackCredentials(token),
                 channel="#prefect",
                 text=f"Flow run {context.flow_run.name} completed :tada:"

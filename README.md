@@ -35,26 +35,24 @@ Slack's [Basic app setup](https://api.slack.com/authentication/basics) guide pro
 ### Write and run a flow
 
 ```python
-import asyncio
-
 from prefect import flow
 from prefect.context import get_run_context
 from prefect_slack import SlackCredentials
 from prefect_slack.messages import send_chat_message
 
+
 @flow
-async def example_flow():
-    context = get_run_context()
+def my_flow():
+   context = get_run_context()
 
-    # Run other tasks and subflows here
+   # Run other tasks and subflows here
 
-    await send_chat_message(
-        slack_credentials=SlackCredentials("xoxb-your-bot-token-here"),
-        channel="#prefect",
-        text=f"Flow run {context.flow_run.name} completed :tada:"
-    )
-
-asyncio.run(example_flow())
+   token = "xoxb-your-bot-token-here"
+   send_chat_message(
+         slack_credentials=SlackCredentials(token),
+         channel="#prefect",
+         text=f"Flow run {context.flow_run.name} completed :tada:"
+   )
 ```
 
 ## Resources
