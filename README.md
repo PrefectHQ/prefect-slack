@@ -42,7 +42,7 @@ from prefect_slack.messages import send_chat_message
 
 
 @flow
-def my_flow():
+def example_send_message_flow():
    context = get_run_context()
 
    # Run other tasks and subflows here
@@ -53,6 +53,8 @@ def my_flow():
          channel="#prefect",
          text=f"Flow run {context.flow_run.name} completed :tada:"
    )
+
+example_send_message_flow()
 ```
 
 ## Resources
