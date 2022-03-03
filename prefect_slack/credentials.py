@@ -1,3 +1,4 @@
+"""Credential classes used to perform authenticated interacting with Slack"""
 from dataclasses import dataclass
 
 from slack_sdk.web.async_client import AsyncWebClient
