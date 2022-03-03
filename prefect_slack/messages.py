@@ -1,3 +1,4 @@
+"""Tasks for sending Slack messages"""
 from typing import TYPE_CHECKING, Dict, Optional, Sequence, Union
 
 from prefect import get_run_logger, task
@@ -77,8 +78,3 @@ async def send_chat_message(
         channel=channel, text=text, blocks=slack_blocks, attachments=attachments
     )
     return result.data
-
-
-@task
-async def send_incoming_webhook_message():
-    raise NotImplementedError()
