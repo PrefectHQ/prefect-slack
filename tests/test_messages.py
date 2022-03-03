@@ -46,7 +46,7 @@ async def test_send_chat_message(
         )
 
     await test_flow()
-    slack_credentials.get_slack_web_client().chat_postMessage.assert_called_with(
+    slack_credentials.get_client().chat_postMessage.assert_called_with(
         text=text, channel=channel, blocks=slack_blocks, attachments=attachments
     )
 
@@ -68,6 +68,6 @@ async def test_send_incoming_webhook_message(
         )
 
     await test_flow()
-    slack_webhook.get_slack_webhook_client().send.assert_called_with(
+    slack_webhook.get_client().send.assert_called_with(
         text=text, blocks=slack_blocks, attachments=attachments
     )
