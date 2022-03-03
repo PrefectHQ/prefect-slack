@@ -7,8 +7,10 @@ from prefect.utilities.testing import AsyncMock
 @pytest.fixture
 def slack_credentials():
     slack_credentials_mock = MagicMock()
-    slack_credentials_mock.get_client.return_value = AsyncMock(
-        chat_postMessage=MagicMock(data=dict())
+    chat_postMessage_mock = AsyncMock()
+    chat_postMessage_mock.return_value = MagicMock(data=dict())
+    slack_credentials_mock.get_client.return_value = MagicMock(
+        chat_postMessage=chat_postMessage_mock
     )
     return slack_credentials_mock
 
