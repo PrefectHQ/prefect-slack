@@ -15,7 +15,7 @@ class SlackCredentials:
 
     token: str
 
-    def get_slack_web_client(self) -> AsyncWebClient:
+    def get_client(self) -> AsyncWebClient:
         """
         Returns an authenticated `AsyncWebClient` to interact with the Slack API.
         """
@@ -34,7 +34,7 @@ class SlackWebhook:
 
     url: str
 
-    def get_slack_webhook_client(self) -> AsyncWebhookClient:
+    def get_client(self) -> AsyncWebhookClient:
         """
         Returns and authenticated `AsyncWebhookClient` to interact with the configured
         Slack webhook.

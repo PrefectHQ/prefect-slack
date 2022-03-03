@@ -73,7 +73,7 @@ async def send_chat_message(
     logger = get_run_logger()
     logger.info("Posting chat message to %s", channel)
 
-    client = slack_credentials.get_slack_web_client()
+    client = slack_credentials.get_client()
     result = await client.chat_postMessage(
         channel=channel, text=text, blocks=slack_blocks, attachments=attachments
     )
@@ -135,5 +135,5 @@ async def send_incoming_webhook_message(
     logger = get_run_logger()
     logger.info("Posting message to provided webhook")
 
-    client = slack_webhook.get_slack_webhook_client()
+    client = slack_webhook.get_client()
     await client.send(text=text, attachments=attachments, blocks=slack_blocks)
