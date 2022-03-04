@@ -37,7 +37,7 @@ async def test_send_chat_message(
 ):
     @flow
     async def test_flow():
-        await send_chat_message(
+        return await send_chat_message(
             slack_credentials=slack_credentials,
             text=text,
             channel=channel,

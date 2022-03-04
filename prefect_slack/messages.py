@@ -5,7 +5,7 @@ from prefect import get_run_logger, task
 
 from prefect_slack.credentials import SlackCredentials, SlackWebhook
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: no cover
     import slack_sdk.models.attachments
     import slack_sdk.models.blocks
 
