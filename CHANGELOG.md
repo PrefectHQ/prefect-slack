@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-### Added 
+### Added
 
--  `send_chat_message` task - [#3](https://github.com/PrefectHQ/prefect-slack/pull/3)
--  `send_incoming_webhook` task - [#5](https://github.com/PrefectHQ/prefect-slack/pull/5)
+- `send_chat_message` task - [#3](https://github.com/PrefectHQ/prefect-slack/pull/3)
+- `send_incoming_webhook` task - [#5](https://github.com/PrefectHQ/prefect-slack/pull/5)
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
