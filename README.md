@@ -16,10 +16,10 @@ These tasks are designed to work with Prefect 2.0. For more information about ho
 
 ### Installation
 
-Install `prefect` and `prefect-slack`
+Install `prefect-slack`
 
 ```bash
-pip install "prefect>=2.0a9" prefect-slack
+pip install prefect-slack
 ```
 
 ### Slack setup
