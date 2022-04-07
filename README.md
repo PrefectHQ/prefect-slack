@@ -2,7 +2,7 @@
 
 ## Welcome!
 
-`prefect-slack` is a collections of prebuilt Prefect tasks that can be used to quickly construct Prefect flows.
+`prefect-slack` is a collection of prebuilt Prefect tasks that can be used to quickly construct Prefect flows.
 
 ## Getting Started
 
@@ -59,7 +59,7 @@ example_send_message_flow()
 
 ## Resources
 
-If you encounter and bugs while using `prefect-slack`, feel free to open an issue in the [prefect-slack](https://github.com/PrefectHQ/prefect-slack) repository.
+If you encounter any bugs while using `prefect-slack`, feel free to open an issue in the [prefect-slack](https://github.com/PrefectHQ/prefect-slack) repository.
 
 If you have any questions or issues while using `prefect-slack`, you can find help in either the [Prefect Discourse forum](https://discourse.prefect.io/) or the [Prefect Slack community](https://prefect.io/slack)
 

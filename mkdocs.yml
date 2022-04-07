@@ -1,4 +1,5 @@
 site_name: prefect-slack
+repo_url: https://github.com/PrefectHQ/prefect-slack
 theme:
   name: material
   palette:
