@@ -41,7 +41,7 @@ jobs:
         run: pip install cruft
 
       - name: Perform updates
-        run: cruft update
+        run: cruft update -y
 
       - name: Submit PR
         uses: peter-evans/create-pull-request@v4
