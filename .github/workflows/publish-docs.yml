@@ -6,7 +6,6 @@ on:
 jobs:
   build-and-publish-docs:
     name: Build and publish docs
-    needs: [build-release]
     runs-on: ubuntu-latest
 
     steps:
