@@ -17,7 +17,7 @@ class SlackCredentials(Block):
         Load stored Slack credentials:
         ```python
         from prefect_slack import SlackCredentials
-        slack_credentials_block = SlackCredentials.load("MY_BLOCK_NAME")
+        slack_credentials_block = SlackCredentials.load("BLOCK_NAME")
         ```
     """  # noqa E501
 
