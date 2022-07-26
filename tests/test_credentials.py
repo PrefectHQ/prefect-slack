@@ -9,6 +9,7 @@ def test_slack_credentials():
 
 
 def test_slack_webhook():
-    assert (
-        isinstance(SlackWebhook(url="https://hooks.slack.com/xxxx").get_client(), AsyncWebhookClient)
+    assert isinstance(
+        SlackWebhook(url="https://hooks.slack.com/xxxx").get_client(),
+        AsyncWebhookClient,
     )
