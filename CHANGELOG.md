@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Converted `SlackCredentials` and `SlackWebhook` into a `Block` - [#10](https://github.com/PrefectHQ/prefect-slack/pull/10)
+
+
 ### Deprecated
 
 ### Removed
