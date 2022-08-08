@@ -1,5 +1,7 @@
 """Credential classes used to perform authenticated interacting with Slack"""
 
+from typing import Optional
+
 from prefect.blocks.core import Block
 from prefect.utilities.asyncutils import sync_compatible
 from pydantic import Field, SecretStr
@@ -64,5 +66,8 @@ class SlackWebhook(Block):
 
     @sync_compatible
     async def notify(self, body: str, subject: Optional[str] = None):
+        """
+        Sends a message to the Slack channel.
+        """
         client = self.get_client()
         await client.send(text=body)
