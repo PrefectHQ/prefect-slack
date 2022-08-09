@@ -36,7 +36,7 @@ class SlackCredentials(Block):
         return AsyncWebClient(token=self.token.get_secret_value())
 
 
-class SlackWebhook(Block):
+class SlackWebhook(NotificationBlock):
     """
     Block holding a Slack webhook for use in tasks and flows.
 
