@@ -3,6 +3,7 @@
 from typing import Optional
 
 from prefect.blocks.core import Block
+from prefect.blocks.notifications import NotificationBlock
 from prefect.utilities.asyncutils import sync_compatible
 from pydantic import Field, SecretStr
 from slack_sdk.web.async_client import AsyncWebClient
