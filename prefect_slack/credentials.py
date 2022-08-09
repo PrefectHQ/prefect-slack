@@ -48,7 +48,7 @@ class SlackWebhook(Block):
         Load stored Slack webhook:
         ```python
         from prefect_slack import SlackWebhook
-        slack_webhook_block = SlackWebhook.load("MY_BLOCK_NAME")
+        slack_webhook_block = SlackWebhook.load("BLOCK_NAME")
         ```
     """
 
