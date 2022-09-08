@@ -5,11 +5,11 @@ from prefect_slack import SlackCredentials, SlackWebhook
 
 
 def test_slack_credentials():
-    assert type(SlackCredentials(token="xoxb-xxxx").get_client()) is AsyncWebClient
+    assert isinstance(SlackCredentials(token="xoxb-xxxx").get_client(), AsyncWebClient)
 
 
 def test_slack_webhook():
-    assert (
-        type(SlackWebhook(url="https://hooks.slack.com/xxxx").get_client())
-        is AsyncWebhookClient
+    assert isinstance(
+        SlackWebhook(url="https://hooks.slack.com/xxxx").get_client(),
+        AsyncWebhookClient,
     )
