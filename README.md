@@ -1,5 +1,21 @@
 # prefect-slack
 
+<p align="center">
+    <a href="https://pypi.python.org/pypi/prefect-slack/" alt="PyPI version">
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect-slack?color=0052FF&labelColor=090422"></a>
+    <a href="https://github.com/PrefectHQ/prefect-slack/" alt="Stars">
+        <img src="https://img.shields.io/github/stars/PrefectHQ/prefect-slack?color=0052FF&labelColor=090422" /></a>
+    <a href="https://pepy.tech/badge/prefect-slack/" alt="Downloads">
+        <img src="https://img.shields.io/pypi/dm/prefect-slack?color=0052FF&labelColor=090422" /></a>
+    <a href="https://github.com/PrefectHQ/prefect-slack/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/commit-activity/m/PrefectHQ/prefect-slack?color=0052FF&labelColor=090422" /></a>
+    <br>
+    <a href="https://prefect-slack-community.slack.com" alt="Slack">
+        <img src="https://img.shields.io/badge/slack-join_community-red.svg?color=0052FF&labelColor=090422&logo=slack" /></a>
+    <a href="https://discourse.prefect-slack.io/" alt="Discourse">
+        <img src="https://img.shields.io/badge/discourse-browse_forum-red.svg?color=0052FF&labelColor=090422&logo=discourse" /></a>
+</p>
+
 ## Welcome!
 
 `prefect-slack` is a collection of prebuilt Prefect tasks that can be used to quickly construct Prefect flows.
@@ -21,6 +37,14 @@ Install `prefect-slack`
 ```bash
 pip install prefect-slack
 ```
+
+Then, register to [view the block](https://orion-docs.prefect.io/ui/blocks/) on Prefect Cloud:
+
+```bash
+prefect block register -m prefect_slack.credentials
+```
+
+Note, to use the `load` method on Blocks, you must already have a block document [saved through code](https://orion-docs.prefect.io/concepts/blocks/#saving-blocks) or [saved through the UI](https://orion-docs.prefect.io/ui/blocks/).
 
 ### Slack setup
 
