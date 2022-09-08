@@ -9,10 +9,6 @@
       "collection_name": "prefect-slack",
       "collection_slug": "prefect_slack",
       "collection_short_description": "Prefect tasks and subflows for interacting with Slack",
-      "_copy_without_render": [
-        ".github/workflows/*.yml",
-        ".github/workflows/*.yml"
-      ],
       "_template": "https://github.com/PrefectHQ/prefect-collection-template"
     }
   },
