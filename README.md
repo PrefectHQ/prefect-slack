@@ -10,9 +10,9 @@
     <a href="https://github.com/PrefectHQ/prefect-slack/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/m/PrefectHQ/prefect-slack?color=0052FF&labelColor=090422" /></a>
     <br>
-    <a href="https://prefect-slack-community.slack.com" alt="Slack">
+    <a href="https://prefect-community.slack.com" alt="Slack">
         <img src="https://img.shields.io/badge/slack-join_community-red.svg?color=0052FF&labelColor=090422&logo=slack" /></a>
-    <a href="https://discourse.prefect-slack.io/" alt="Discourse">
+    <a href="https://discourse.prefect.io/" alt="Discourse">
         <img src="https://img.shields.io/badge/discourse-browse_forum-red.svg?color=0052FF&labelColor=090422&logo=discourse" /></a>
 </p>
 
@@ -86,6 +86,8 @@ example_send_message_flow()
 If you encounter any bugs while using `prefect-slack`, feel free to open an issue in the [prefect-slack](https://github.com/PrefectHQ/prefect-slack) repository.
 
 If you have any questions or issues while using `prefect-slack`, you can find help in either the [Prefect Discourse forum](https://discourse.prefect.io/) or the [Prefect Slack community](https://prefect.io/slack)
+
+Feel free to ⭐️ or watch [`prefect-slack`](https://github.com/PrefectHQ/prefect-slack) for updates too!
 
 ## Development
 
