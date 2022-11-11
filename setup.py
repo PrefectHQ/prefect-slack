@@ -29,8 +29,7 @@ setup(
     extras_require={"dev": dev_requires},
     entry_points={
         "prefect.collections": [
-            "SlackCredentials = prefect_slack.credentials",
-            "SlackWebhook = prefect_slack.credentials",
+            "prefect_slack = prefect_slack",
         ]
     },
     classifiers=[
