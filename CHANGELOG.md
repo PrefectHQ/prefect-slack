@@ -11,9 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Converted `SlackCredentials` and `SlackWebhook` into a `Block` - [#29](https://github.com/PrefectHQ/prefect-slack/pull/29)
-
-
 ### Deprecated
 
 ### Removed
@@ -21,6 +18,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 ### Security
+
+## 0.1.1
+
+Released on December 27th, 2022.
+
+### Changed
+
+- Converted `SlackCredentials` and `SlackWebhook` into a `Block` - [#29](https://github.com/PrefectHQ/prefect-slack/pull/29)
+
+### Fixed
+
+- The setup entrypoint to register blocks - [#40](https://github.com/PrefectHQ/prefect-slack/pull/40)
 
 ## 0.1.0
 
