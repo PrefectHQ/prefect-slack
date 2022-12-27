@@ -28,7 +28,10 @@ class SlackCredentials(Block):
     _block_type_name = "Slack Credentials"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/7dkzINU9r6j44giEFuHuUC/85d4cd321ad60c1b1e898bc3fbd28580/5cb480cd5f1b6d3fbadece79.png?h=250"  # noqa
 
-    token: SecretStr
+    token: SecretStr = Field(
+        default=...,
+        description="Bot user OAuth token for the Slack app used to perform actions.",
+    )
 
     def get_client(self) -> AsyncWebClient:
         """
@@ -56,7 +59,12 @@ class SlackWebhook(NotificationBlock):
     _block_type_name = "Slack Webhook"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/7dkzINU9r6j44giEFuHuUC/85d4cd321ad60c1b1e898bc3fbd28580/5cb480cd5f1b6d3fbadece79.png?h=250"  # noqa
 
-    url: SecretStr = Field(..., title="Webhook URL")
+    url: SecretStr = Field(
+        default=...,
+        title="Webhook URL",
+        description="Slack webhook URL which can be used to send messages.",
+        example="https://hooks.slack.com/XXX",
+    )
 
     def get_client(self) -> AsyncWebhookClient:
         """
