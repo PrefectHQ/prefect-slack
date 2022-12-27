@@ -30,7 +30,7 @@ class SlackCredentials(Block):
 
     token: SecretStr = Field(
         default=...,
-        description="Bot user OAuth token for the Slack app used to perform actions."
+        description="Bot user OAuth token for the Slack app used to perform actions.",
     )
 
     def get_client(self) -> AsyncWebClient:
@@ -63,7 +63,7 @@ class SlackWebhook(NotificationBlock):
         default=...,
         title="Webhook URL",
         description="Slack webhook URL which can be used to send messages.",
-        example="https://hooks.slack.com/XXX"
+        example="https://hooks.slack.com/XXX",
     )
 
     def get_client(self) -> AsyncWebhookClient:
