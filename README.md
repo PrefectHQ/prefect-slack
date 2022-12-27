@@ -81,6 +81,35 @@ def example_send_message_flow():
 example_send_message_flow()
 ```
 
+### Use `with_options` to customize options on any existing task or flow:
+
+```python
+from prefect import flow
+from prefect.context import get_run_context
+from prefect_slack import SlackCredentials
+from prefect_slack.messages import send_chat_message
+
+custom_send_chat_message = send_chat_message.with_options(
+    name="My custom task name",
+    retries=2,
+    retry_delay_seconds=10,
+)
+ 
+ @flow
+ def example_wiht_options_flow():
+
+   slack_credentials = SlackCredentials.load("my_slack_token")
+   custom_send_chat_message(
+         slack_credentials=slack_credentials,
+         channel="#prefect",
+         text=f"Flow run {context.flow_run.name} completed :tada:"
+   )
+ 
+ example_wiht_options_flow()
+ ```
+ 
+For more tips on how to use tasks and flows in a Collection, check out [Using Collections](https://orion-docs.prefect.io/collections/usage/)!
+
 ## Resources
 
 If you encounter any bugs while using `prefect-slack`, feel free to open an issue in the [prefect-slack](https://github.com/PrefectHQ/prefect-slack) repository.

@@ -12,12 +12,6 @@ We recommend using a Python virtual environment manager such as pipenv, conda or
 
 ### GitHub setup
 
-Generate a Prefect collection project in the terminal:
-
-```bash
-cookiecutter https://github.com/PrefectHQ/prefect-collection-template
-```
-
 Create a Git respoitory for the newly generated collection and create the first commit:
 
 ```bash
