@@ -96,16 +96,16 @@ custom_send_chat_message = send_chat_message.with_options(
 )
  
 @flow
-def example_wiht_options_flow():
+def example_with_options_flow():
 
-slack_credentials = SlackCredentials.load("my_slack_token")
-custom_send_chat_message(
-        slack_credentials=slack_credentials,
-        channel="#prefect",
-        text=f"Flow run {context.flow_run.name} completed :tada:"
-)
+    slack_credentials = SlackCredentials.load("my_slack_token")
+    custom_send_chat_message(
+            slack_credentials=slack_credentials,
+            channel="#prefect",
+            text=f"Flow run {context.flow_run.name} completed :tada:"
+    )
 
-example_wiht_options_flow()
+example_with_options_flow()
 ```
  
 For more tips on how to use tasks and flows in a Collection, check out [Using Collections](https://docs.prefect.io/collections/usage/)!
