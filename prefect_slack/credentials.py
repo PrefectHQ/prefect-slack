@@ -1,4 +1,4 @@
-"""Credential classes used to perform authenticated interacting with Slack"""
+"""Credential classes used to perform authenticated interacting with Slack."""
 
 from typing import Optional
 
@@ -68,7 +68,7 @@ class SlackWebhook(NotificationBlock):
 
     def get_client(self) -> AsyncWebhookClient:
         """
-        Returns and authenticated `AsyncWebhookClient` to interact with the configured
+        Returns an authenticated `AsyncWebhookClient` to interact with the configured
         Slack webhook.
         """
         return AsyncWebhookClient(url=self.url.get_secret_value())

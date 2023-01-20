@@ -24,35 +24,35 @@
 
 ### Python setup
 
-Requires an installation of Python 3.7+
+Requires an installation of Python 3.7+.
 
 We recommend using a Python virtual environment manager such as pipenv, conda or virtualenv.
 
-These tasks are designed to work with Prefect 2.0. For more information about how to use Prefect, please refer to the [Prefect documentation](https://orion-docs.prefect.io/).
+These tasks are designed to work with Prefect 2.0. For more information about how to use Prefect, please refer to the [Prefect documentation](https://docs.prefect.io/).
 
 ### Installation
 
-Install `prefect-slack`
+Install `prefect-slack`:
 
 ```bash
 pip install prefect-slack
 ```
 
-Then, register to [view the block](https://orion-docs.prefect.io/ui/blocks/) on Prefect Cloud:
+Then, register to [view the block](https://docs.prefect.io/ui/blocks/) on Prefect Cloud:
 
 ```bash
 prefect block register -m prefect_slack
 ```
 
-Note, to use the `load` method on Blocks, you must already have a block document [saved through code](https://orion-docs.prefect.io/concepts/blocks/#saving-blocks) or [saved through the UI](https://orion-docs.prefect.io/ui/blocks/).
+Note, to use the `load` method on blocks, you must already have a block document [saved through code](https://docs.prefect.io/concepts/blocks/#saving-blocks) or [saved through the UI](https://docs.prefect.io/ui/blocks/).
 
 ### Slack setup
 
-In order to use tasks in the collection, you'll first need to create an Slack app and install it in your Slack workspace. You can create a Slack app by navigating to the [apps page](https://api.slack.com/apps) for your Slack account and selecting 'Create New App'.
+In order to use tasks in the collection, you'll first need to create a Slack app and install it in your Slack workspace. You can create a Slack app by navigating to the [apps page](https://api.slack.com/apps) for your Slack account and selecting **Create New App**.
 
-For tasks that require a Bot user OAuth token, you can get a token for your app by navigating to your apps __OAuth & Permissions__ page.
+For tasks that require a Bot user OAuth token, you can get a token for your app by navigating to your app's __OAuth & Permissions__ page.
 
-For tasks that require and Webhook URL, you get generate new Webhook URLs by navigating to you apps __Incoming Webhooks__ page.
+For tasks that require a Webhook URL, you can generate new Webhook URLs by navigating to your app's __Incoming Webhooks__ page.
 
 Slack's [Basic app setup](https://api.slack.com/authentication/basics) guide provides additional details on setting up a Slack app.
 
@@ -95,20 +95,20 @@ custom_send_chat_message = send_chat_message.with_options(
     retry_delay_seconds=10,
 )
  
- @flow
- def example_wiht_options_flow():
+@flow
+def example_with_options_flow():
 
-   slack_credentials = SlackCredentials.load("my_slack_token")
-   custom_send_chat_message(
-         slack_credentials=slack_credentials,
-         channel="#prefect",
-         text=f"Flow run {context.flow_run.name} completed :tada:"
-   )
+    slack_credentials = SlackCredentials.load("my_slack_token")
+    custom_send_chat_message(
+            slack_credentials=slack_credentials,
+            channel="#prefect",
+            text=f"Flow run {context.flow_run.name} completed :tada:"
+    )
+
+example_with_options_flow()
+```
  
- example_wiht_options_flow()
- ```
- 
-For more tips on how to use tasks and flows in a Collection, check out [Using Collections](https://orion-docs.prefect.io/collections/usage/)!
+For more tips on how to use tasks and flows in a Collection, check out [Using Collections](https://docs.prefect.io/collections/usage/)!
 
 ## Resources
 

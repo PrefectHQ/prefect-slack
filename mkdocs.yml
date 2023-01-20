@@ -1,7 +1,7 @@
 site_name: prefect-slack
 site_url: https://PrefectHQ.github.io/prefect-slack
 repo_url: https://github.com/prefecthq/prefect-slack
-edit_uri: edit/main/docs/
+edit_uri: edit/main
 theme:
   name: material
   favicon: img/favicon.ico
