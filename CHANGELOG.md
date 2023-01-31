@@ -19,6 +19,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## 0.1.2
+
+Released on January 31st, 2023.
+
+### Fixed
+
+- Renamed `prefect_slack.SlackWebhook._block_type_name` to prevent conflict with `prefect.SlackWebhook` - [#45](https://github.com/PrefectHQ/prefect-slack/pull/45)
+
 ## 0.1.1
 
 Released on December 27th, 2022.

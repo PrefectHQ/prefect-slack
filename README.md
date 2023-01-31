@@ -73,7 +73,7 @@ def example_send_message_flow():
 
    token = "xoxb-your-bot-token-here"
    send_chat_message(
-         slack_credentials=SlackCredentials(token),
+         slack_credentials=SlackCredentials(token=token),
          channel="#prefect",
          text=f"Flow run {context.flow_run.name} completed :tada:"
    )
