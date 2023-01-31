@@ -56,7 +56,7 @@ class SlackWebhook(NotificationBlock):
         ```
     """
 
-    _block_type_name = "Slack Webhook"
+    _block_type_name = "Slack Incoming Webhook"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/7dkzINU9r6j44giEFuHuUC/85d4cd321ad60c1b1e898bc3fbd28580/5cb480cd5f1b6d3fbadece79.png?h=250"  # noqa
 
     url: SecretStr = Field(
