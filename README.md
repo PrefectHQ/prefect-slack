@@ -1,6 +1,8 @@
 # prefect-slack
 
 <p align="center">
+    <!--- Insert a cover image here -->
+    <!--- <br> -->
     <a href="https://pypi.python.org/pypi/prefect-slack/" alt="PyPI version">
         <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect-slack?color=0052FF&labelColor=090422"></a>
     <a href="https://github.com/PrefectHQ/prefect-slack/" alt="Stars">
