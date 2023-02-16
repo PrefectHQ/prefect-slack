@@ -71,7 +71,6 @@ watch:
 nav:
     - Home: index.md
     - Blocks Catalog: blocks_catalog.md
-    - Examples Catalog: examples_catalog.md
     - API Reference:
         - Credentials: credentials.md
         - Messages: messages.md
