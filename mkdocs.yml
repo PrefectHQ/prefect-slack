@@ -44,7 +44,8 @@ markdown_extensions:
     - pymdownx.highlight:
         use_pygments: true
     - pymdownx.superfences
-    - pymdownx.tabbed
+    - pymdownx.tabbed:
+        alternate_style: true 
     - pymdownx.inlinehilite
     - pymdownx.snippets
 
@@ -71,6 +72,7 @@ watch:
 nav:
     - Home: index.md
     - Blocks Catalog: blocks_catalog.md
+    - Examples Catalog: examples_catalog.md
     - API Reference:
         - Credentials: credentials.md
         - Messages: messages.md
