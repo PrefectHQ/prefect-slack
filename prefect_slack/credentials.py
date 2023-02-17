@@ -17,11 +17,18 @@ class SlackCredentials(Block):
     Args:
         token: Bot user OAuth token for the Slack app used to perform actions.
 
-    Example:
+    Examples:
         Load stored Slack credentials:
         ```python
         from prefect_slack import SlackCredentials
         slack_credentials_block = SlackCredentials.load("BLOCK_NAME")
+        ```
+
+        Get a Slack client:
+        ```python
+        from prefect_slack import SlackCredentials
+        slack_credentials_block = SlackCredentials.load("BLOCK_NAME")
+        client = slack_credentials_block.get_client()
         ```
     """  # noqa E501
 
@@ -49,11 +56,25 @@ class SlackWebhook(NotificationBlock):
         url: Slack webhook URL which can be used to send messages
             (e.g. `https://hooks.slack.com/XXX`).
 
-    Example:
+    Examples:
         Load stored Slack webhook:
         ```python
         from prefect_slack import SlackWebhook
         slack_webhook_block = SlackWebhook.load("BLOCK_NAME")
+        ```
+
+        Get a Slack webhook client:
+        ```python
+        from prefect_slack import SlackWebhook
+        slack_webhook_block = SlackWebhook.load("BLOCK_NAME")
+        client = slack_webhook_block.get_client()
+        ```
+
+        Send a notification in Slack:
+        ```python
+        from prefect_slack import SlackWebhook
+        slack_webhook_block = SlackWebhook.load("BLOCK_NAME")
+        slack_webhook_block.notify("Hello, world!")
         ```
     """
 

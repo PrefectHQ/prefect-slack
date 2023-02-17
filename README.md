@@ -1,8 +1,8 @@
 # Reliably send Slack messages with prefect-slack
 
 <p align="center">
-    <!--- Insert a cover image here -->
-    <!--- <br> -->
+    <img src="https://user-images.githubusercontent.com/15331990/219525228-134e5680-eb94-4559-b641-c4bd72aa8926.png">
+    <br>
     <a href="https://pypi.python.org/pypi/prefect-slack/" alt="PyPI version">
         <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect-slack?color=0052FF&labelColor=090422"></a>
     <a href="https://github.com/PrefectHQ/prefect-slack/" alt="Stars">
@@ -20,74 +20,162 @@
 
 Visit the full docs [here](https://PrefectHQ.github.io/prefect-slack) to see additional examples and the API reference.
 
-`prefect-slack` is a collection of prebuilt Prefect integrations that can be used to interact with email services.
+`prefect-slack` is a collection of prebuilt Prefect integrations that can be used to interact with Slack.
 
 ## Getting Started
 
-### Slack setup
+### Saving credentials to block
 
 In order to use tasks in the collection, you'll first need to create a Slack app and install it in your Slack workspace.
 
 You can create a Slack app by navigating to the [apps page](https://api.slack.com/apps) for your Slack account and selecting **Create New App**.
 
-For tasks that require a Bot user OAuth token, you can get a token for your app by navigating to your app's __OAuth & Permissions__ page.
-
-For tasks that require a Webhook URL, you can generate new Webhook URLs by navigating to your app's __Incoming Webhooks__ page.
-
 Slack's [Basic app setup](https://api.slack.com/authentication/basics) guide provides additional details on setting up a Slack app.
 
-### Write and run a flow
+=== "Webhook"
 
-```python
-from prefect import flow
-from prefect.context import get_run_context
-from prefect_slack import SlackCredentials
-from prefect_slack.messages import send_chat_message
+    For integrations that require a Webhook URL, you can generate new Webhook URLs by navigating to your app's __Incoming Webhooks__ page.
 
+    Click __Add New Webhook to Workspace__ and copy the webhook URL, formatted like `https://hooks.slack.com/services/...`.
 
-@flow
-def example_send_message_flow():
-   context = get_run_context()
+    Then, create and run a short script, replacing the placeholders.
 
-   # Run other tasks and subflows here
+    ```python
+    from prefect_slack import SlackWebhook
 
-   token = "xoxb-your-bot-token-here"
-   send_chat_message(
-         slack_credentials=SlackCredentials(token=token),
-         channel="#prefect",
-         text=f"Flow run {context.flow_run.name} completed :tada:"
-   )
+    SlackWebhook(url="WEBHOOK_URL_PLACEHOLDER").save("BLOCK-NAME-PLACEHOLDER")
+    ```
 
-example_send_message_flow()
-```
+    Congrats! You can now easily load the saved block, which holds your credentials:
 
-### Use `with_options` to customize options on any existing task or flow:
+    ```python
+    from prefect_slack import SlackWebhook
 
-```python
-from prefect import flow
-from prefect.context import get_run_context
-from prefect_slack import SlackCredentials
-from prefect_slack.messages import send_chat_message
+    SlackWebhook.load("BLOCK-NAME-PLACEHOLDER")
+    ```
 
-custom_send_chat_message = send_chat_message.with_options(
-    name="My custom task name",
-    retries=2,
-    retry_delay_seconds=10,
-)
- 
-@flow
-def example_with_options_flow():
+=== "OAuth"
 
-    slack_credentials = SlackCredentials.load("my_slack_token")
-    custom_send_chat_message(
+    For integrations that require a Bot user OAuth token, you can get a token for your app by navigating to your app's __OAuth & Permissions__ page.
+
+    Locate __Bot User OAuth Token__ and copy the token, formatted like `xoxb-...`.
+
+    Then, create and run a short script, replacing placeholders.
+
+    ```python
+    from prefect_slack import SlackCredentials
+
+    SlackCredentials(token="TOKEN-PLACEHOLDER").save("BLOCK-NAME-PLACEHOLDER")
+    ```
+
+    Next, update the scope to include `chat:write`, which will prompt you to reinstall the app.
+
+    Congrats! You can now easily load the saved block, which holds your credentials:
+
+    ```python
+    from prefect_slack import SlackCredentials
+
+    SlackCredentials.load("BLOCK-NAME-PLACEHOLDER")
+    ```
+
+!!! info "Unsure whether to authenticate with Webhook or OAuth?"
+
+    Webhook requires slightly less configuration and is limited to a single channel, which makes it suitable for getting started.
+
+### Integrate with Prefect flows
+
+`prefect-slack` makes sending Slack messages effortless, giving you peace of mind that your messages are being sent as expected.
+
+First, install [prefect-slack](#installation) and [save your Slack credentials to a block](#saving-credentials-to-block) to run the examples below!
+
+=== "Webhook"
+
+    ```python
+    from prefect import flow
+    from prefect_slack import SlackWebhook
+    from prefect_slack.messages import send_incoming_webhook_message
+
+    @flow
+    def example_slack_send_message_flow():
+        slack_webhook = SlackWebhook.load("BLOCK-NAME-PLACEHOLDER")
+        result = send_incoming_webhook_message(
+            slack_webhook=slack_webhook,
+            text="This proves send_incoming_webhook_message works!",
+        )
+        return result
+
+    example_slack_send_message_flow()
+    ```
+
+    Outputs:
+    ```bash
+    16:30:47.101 | INFO    | prefect.engine - Created flow run 'scrupulous-avocet' for flow 'example-slack-send-message-flow'
+    16:30:48.389 | INFO    | Flow run 'scrupulous-avocet' - Created task run 'send_incoming_webhook_message-a90deb5e-0' for task 'send_incoming_webhook_message'
+    16:30:48.391 | INFO    | Flow run 'scrupulous-avocet' - Executing 'send_incoming_webhook_message-a90deb5e-0' immediately...
+    16:30:48.861 | INFO    | Task run 'send_incoming_webhook_message-a90deb5e-0' - Posting message to provided webhook
+    16:30:49.390 | INFO    | Task run 'send_incoming_webhook_message-a90deb5e-0' - Finished in state Completed()
+    16:30:49.571 | INFO    | Flow run 'scrupulous-avocet' - Finished in state Completed('All states completed.')
+    ```
+
+=== "OAuth"
+
+    ```python
+    from prefect import flow
+    from prefect_slack import SlackCredentials
+    from prefect_slack.messages import send_chat_message
+
+    @flow
+    def example_slack_send_message_flow():
+        slack_credentials = SlackCredentials.load("BLOCK-NAME-PLACEHOLDER")
+        result = send_chat_message(
             slack_credentials=slack_credentials,
-            channel="#prefect",
-            text=f"Flow run {context.flow_run.name} completed :tada:"
-    )
+            text="This proves send_chat_message works!",
+            channel="CHANNEL-NAME-PLACEHOLDER",
+        )
+        return result
 
-example_with_options_flow()
+    example_slack_send_message_flow()
+    ```
+
+    Outputs:
+
+    ```bash
+    16:28:04.294 | INFO    | prefect.engine - Created flow run 'resourceful-koala' for flow 'example-slack-send-message-flow'
+    16:28:05.675 | INFO    | Flow run 'resourceful-koala' - Created task run 'send_chat_message-0403e84a-0' for task 'send_chat_message'
+    16:28:05.678 | INFO    | Flow run 'resourceful-koala' - Executing 'send_chat_message-0403e84a-0' immediately...
+    16:28:06.160 | INFO    | Task run 'send_chat_message-0403e84a-0' - Posting chat message to testing-slack
+    16:28:06.674 | INFO    | Task run 'send_chat_message-0403e84a-0' - Finished in state Completed()
+    16:28:06.848 | INFO    | Flow run 'resourceful-koala' - Finished in state Completed()
+    ```
+
+### Capture exceptions and notify by Slack message
+
+Perhaps you want a Slack notification with the details of the exception when your flow run fails.
+
+`prefect-slack` can be wrapped in an `except` statement to do just that!
+
+```python
+from prefect import flow
+from prefect.context import get_run_context
+from prefect_slack import SlackWebhook
+
+def notify_exc_by_slack(exc):
+    context = get_run_context()
+    flow_run_name = context.flow_run.name
+    slack_webhook = SlackWebhook.load("BLOCK-NAME-PLACEHOLDER")
+    slack_webhook.notify(body=f"Flow run {flow_run_name!r} failed due to {exc}.")
+
+@flow
+def example_flow():
+    try:
+        1 / 0
+    except Exception as exc:
+        notify_exc_by_slack(exc)
+        raise
+
+example_flow()
 ```
- 
+
 ## Resources
 
 For more tips on how to use tasks and flows in a Collection, check out [Using Collections](https://docs.prefect.io/collections/usage/)!
@@ -134,15 +222,3 @@ pip install -e ".[dev]"
 pre-commit install
 ```
 8. `git commit`, `git push`, and create a pull request
-
-## Development
-
-If you'd like to install a version of `prefect-slack` for development, first clone the repository and then perform an editable install with `pip`:
-
-```bash
-git clone https://github.com/PrefectHQ/prefect-slack.git
-
-cd prefect-slack/
-
-pip install -e ".[dev]"
-```
