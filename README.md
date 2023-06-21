@@ -7,7 +7,7 @@
         <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect-slack?color=0052FF&labelColor=090422"></a>
     <a href="https://github.com/PrefectHQ/prefect-slack/" alt="Stars">
         <img src="https://img.shields.io/github/stars/PrefectHQ/prefect-slack?color=0052FF&labelColor=090422" /></a>
-    <a href="https://pepy.tech/badge/prefect-slack/" alt="Downloads">
+    <a href="https://pypistats.org/packages/prefect-slack/" alt="Downloads">
         <img src="https://img.shields.io/pypi/dm/prefect-slack?color=0052FF&labelColor=090422" /></a>
     <a href="https://github.com/PrefectHQ/prefect-slack/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/m/PrefectHQ/prefect-slack?color=0052FF&labelColor=090422" /></a>
