@@ -63,7 +63,7 @@ To verify the setup was successful you can run the following:
 
 ## Developing tasks and flows
 
-For information about the use and development of tasks and flow, check out the [flows](https://orion-docs.prefect.io/concepts/flows/) and [tasks](https://orion-docs.prefect.io/concepts/tasks/) concepts docs in the Prefect docs.
+For information about the use and development of tasks and flow, check out the [flows](https://docs.prefect.io/concepts/flows/) and [tasks](https://docs.prefect.io/concepts/tasks/) concepts docs in the Prefect docs.
 
 ## Writing documentation
 
