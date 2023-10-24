@@ -5,7 +5,13 @@ from typing import Optional
 from prefect.blocks.core import Block
 from prefect.blocks.notifications import NotificationBlock
 from prefect.utilities.asyncutils import sync_compatible
-from pydantic import Field, SecretStr
+from pydantic import VERSION as PYDANTIC_VERSION
+
+if PYDANTIC_VERSION.startswith("2."):
+    from pydantic.v1 import Field, SecretStr
+else:
+    from pydantic import Field, SecretStr
+
 from slack_sdk.web.async_client import AsyncWebClient
 from slack_sdk.webhook.async_client import AsyncWebhookClient
 
