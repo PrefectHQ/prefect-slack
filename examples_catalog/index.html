@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.bd3936ea.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
@@ -520,16 +520,7 @@
 <h1 id="examples-catalog">Examples Catalog</h1>
 <p>Below is a list of examples for <code>prefect-slack</code>.</p>
 <h2 id="credentials-module"><a class="autorefs autorefs-internal" href="../credentials/#prefect_slack.credentials">Credentials Module</a></h2>
-<p>Load stored Slack credentials:
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect_slack</span> <span class="kn">import</span> <span class="n">SlackCredentials</span>
-<span class="n">slack_credentials_block</span> <span class="o">=</span> <span class="n">SlackCredentials</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;BLOCK_NAME&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-<p>Get a Slack client:
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect_slack</span> <span class="kn">import</span> <span class="n">SlackCredentials</span>
-<span class="n">slack_credentials_block</span> <span class="o">=</span> <span class="n">SlackCredentials</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;BLOCK_NAME&quot;</span><span class="p">)</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">slack_credentials_block</span><span class="o">.</span><span class="n">get_client</span><span class="p">()</span>
-</code></pre></div>
-Load stored Slack webhook:
+<p>Load stored Slack webhook:
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect_slack</span> <span class="kn">import</span> <span class="n">SlackWebhook</span>
 <span class="n">slack_webhook_block</span> <span class="o">=</span> <span class="n">SlackWebhook</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;BLOCK_NAME&quot;</span><span class="p">)</span>
 </code></pre></div></p>
@@ -542,6 +533,15 @@ Load stored Slack webhook:
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect_slack</span> <span class="kn">import</span> <span class="n">SlackWebhook</span>
 <span class="n">slack_webhook_block</span> <span class="o">=</span> <span class="n">SlackWebhook</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;BLOCK_NAME&quot;</span><span class="p">)</span>
 <span class="n">slack_webhook_block</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</code></pre></div>
+Load stored Slack credentials:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect_slack</span> <span class="kn">import</span> <span class="n">SlackCredentials</span>
+<span class="n">slack_credentials_block</span> <span class="o">=</span> <span class="n">SlackCredentials</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;BLOCK_NAME&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Get a Slack client:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect_slack</span> <span class="kn">import</span> <span class="n">SlackCredentials</span>
+<span class="n">slack_credentials_block</span> <span class="o">=</span> <span class="n">SlackCredentials</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;BLOCK_NAME&quot;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">slack_credentials_block</span><span class="o">.</span><span class="n">get_client</span><span class="p">()</span>
 </code></pre></div></p>
 <h2 id="messages-module"><a class="autorefs autorefs-internal" href="../messages/#prefect_slack.messages">Messages Module</a></h2>
 <p>Post a message at the end of a flow run.</p>
@@ -732,7 +732,7 @@ Post a message at the end of a flow run.</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.94c44541.min.js"></script>
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
     
   </body>
