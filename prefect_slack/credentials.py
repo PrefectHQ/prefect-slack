@@ -39,7 +39,7 @@ class SlackCredentials(Block):
     """  # noqa E501
 
     _block_type_name = "Slack Credentials"
-    _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/7dkzINU9r6j44giEFuHuUC/85d4cd321ad60c1b1e898bc3fbd28580/5cb480cd5f1b6d3fbadece79.png?h=250"  # noqa
+    _logo_url = "https://cdn.sanity.io/images/3ugk85nk/production/c1965ecbf8704ee1ea20d77786de9a41ce1087d1-500x500.png"  # noqa
     _documentation_url = "https://prefecthq.github.io/prefect-slack/credentials/#prefect_slack.credentials.SlackCredentials"  # noqa
 
     token: SecretStr = Field(
