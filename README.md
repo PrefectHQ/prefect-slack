@@ -1,21 +1,17 @@
 # Reliably send Slack messages with prefect-slack
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/15331990/219525228-134e5680-eb94-4559-b641-c4bd72aa8926.png">
-    <br>
     <a href="https://pypi.python.org/pypi/prefect-slack/" alt="PyPI version">
-        <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect-slack?color=0052FF&labelColor=090422"></a>
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect-slack?color=26272B&labelColor=090422"></a>
     <a href="https://github.com/PrefectHQ/prefect-slack/" alt="Stars">
-        <img src="https://img.shields.io/github/stars/PrefectHQ/prefect-slack?color=0052FF&labelColor=090422" /></a>
+        <img src="https://img.shields.io/github/stars/PrefectHQ/prefect-slack?color=26272B&labelColor=090422"2" /></a>
     <a href="https://pepy.tech/badge/prefect-slack/" alt="Downloads">
-        <img src="https://img.shields.io/pypi/dm/prefect-slack?color=0052FF&labelColor=090422" /></a>
+        <img src="https://img.shields.io/pypi/dm/prefect-slack?color=26272B&labelColor=090422"" /></a>
     <a href="https://github.com/PrefectHQ/prefect-slack/pulse" alt="Activity">
-        <img src="https://img.shields.io/github/commit-activity/m/PrefectHQ/prefect-slack?color=0052FF&labelColor=090422" /></a>
+        <img src="https://img.shields.io/github/commit-activity/m/PrefectHQ/prefect-slack?color=26272B&labelColor=090422"2" /></a>
     <br>
     <a href="https://prefect-community.slack.com" alt="Slack">
-        <img src="https://img.shields.io/badge/slack-join_community-red.svg?color=0052FF&labelColor=090422&logo=slack" /></a>
-    <a href="https://discourse.prefect.io/" alt="Discourse">
-        <img src="https://img.shields.io/badge/discourse-browse_forum-red.svg?color=0052FF&labelColor=090422&logo=discourse" /></a>
+        <img src="https://img.shields.io/badge/slack-join_community-red.svg?color=26272B&labelColor=090422"&logo=slack" /></a>
 </p>
 
 Visit the full docs [here](https://PrefectHQ.github.io/prefect-slack) to see additional examples and the API reference.
