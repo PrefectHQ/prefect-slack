@@ -114,7 +114,7 @@ class SlackWebhook(NotificationBlock):
         # prefect>=2.17.2 added a means for notification blocks to raise errors on
         # failures. This is not available in older versions, so we need to check if the
         # private base class attribute exists before using it.
-        if getattr(self, "_raise_on_failure", False):
+        if getattr(self, "_raise_on_failure", False):  # pragma: no cover
             try:
                 from prefect.blocks.abstract import NotificationError
             except ImportError:
