@@ -108,4 +108,17 @@ class SlackWebhook(NotificationBlock):
         Sends a message to the Slack channel.
         """
         client = self.get_client()
-        await client.send(text=body)
+
+        response = await client.send(text=body)
+
+        # prefect>=2.17.2 added a means for notification blocks to raise errors on
+        # failures. This is not available in older versions, so we need to check if the
+        # private base class attribute exists before using it.
+        if getattr(self, "_raise_on_failure", False):  # pragma: no cover
+            try:
+                from prefect.blocks.abstract import NotificationError
+            except ImportError:
+                NotificationError = Exception
+
+            if response.status_code >= 400:
+                raise NotificationError(f"Failed to send message: {response.body}")
