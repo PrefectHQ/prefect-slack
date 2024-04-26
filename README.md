@@ -1,4 +1,8 @@
-# Reliably send Slack messages with prefect-slack
+> [!NOTE]
+> Active development of this project has moved within PrefectHQ/prefect. The code can be found [here](https://github.com/PrefectHQ/prefect/tree/main/src/integrations/prefect-slack) and documentation [here](https://docs.prefect.io/latest/integrations/prefect-slack).
+> Please open issues and PRs against PrefectHQ/prefect instead of this repository.
+
+# `prefect-slack`
 
 <p align="center">
     <a href="https://pypi.python.org/pypi/prefect-slack/" alt="PyPI version">
